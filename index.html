@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anika Rahman - Full Neon Glowing Business Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- MITI MITI ALO BACKGROUND EFFECT (SPARKLES) --- */
+        .sparkle-star {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+            width: 30px;
+            height: 30px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: blinkGlow 3s infinite ease-in-out;
+            opacity: 0.4;
+        }
+        .star1 { top: 12%; left: 8%; animation-delay: 0s; width: 35px; height: 35px; }
+        .star2 { bottom: 12%; right: 6%; animation-delay: 1.5s; width: 50px; height: 50px; }
+
+        @keyframes blinkGlow {
+            0%, 100% { transform: scale(0.7); opacity: 0.2; }
+            50% { transform: scale(1.3); opacity: 0.9; }
+        }
+
+        /* --- THE MASTER BUSINESS CARD --- */
+        .card-container {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.06);
+            width: 100%;
+            max-width: 660px; /* Laptop standard screen limit */
+            padding: 40px 35px;
+            display: flex;
+            flex-direction: row; /* Strict side-by-side positioning lock */
+            align-items: center;
+            gap: 45px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* LEFT SIDE: RED NEON GLOWING PROFILE VIEW OVERLAY */
+        .profile-img-box {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            position: relative;
+            /* Double layers of red neon glow exactly as shown in your image */
+            box-shadow: 0 0 25px rgba(255, 71, 87, 0.65), 0 0 45px rgba(255, 71, 87, 0.3);
+            border: 4px solid rgba(255, 71, 87, 0.85);
+        }
+
+        /* Continuous Dynamic Swing-Sway Motion (Touch Chara Auto Move) */
+        .profile-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 50%;
+            animation: smoothSwing 5s ease-in-out infinite alternate;
+            -webkit-animation: smoothSwing 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes smoothSwing {
+            0% { transform: scale(1) rotate(-3deg); }
+            100% { transform: scale(1.06) rotate(3deg); }
+        }
+        @-webkit-keyframes smoothSwing {
+            0% { -webkit-transform: scale(1) rotate(-3deg); }
+            100% { -webkit-transform: scale(1.06) rotate(3deg); }
+        }
+
+        /* RIGHT SIDE: COMPLETE DETAILS LAYOUT */
+        .info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-width: 0;
+            flex-grow: 1;
+        }
+
+        .name {
+            font-size: 34px;
+            font-weight: 700;
+            color: #1a202c;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .designation {
+            font-size: 15px;
+            font-weight: 400;
+            color: #718096;
+            margin-bottom: 5px;
+        }
+
+        /* Contact Structural Lists Layout */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .contact-item strong {
+            color: #1a202c;
+            font-weight: 700;
+            min-width: 70px;
+            display: inline-block;
+        }
+
+        .contact-item span {
+            word-break: break-all;
+        }
+
+        /* SOCIAL RIBBON MATRIX WITH INDIVIDUAL RED NEON GLOWS */
+        .social-container {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .social-link-item {
+            width: 34px;
+            height: 34px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: bold;
+            color: #1a202c;
+            text-decoration: none;
+            position: relative;
+            /* Exact same soft red glowing shadow under each logo button */
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4), 0 0 8px rgba(255, 71, 87, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Smooth interactive dynamic feedback on touch/hover */
+        .social-link-item:hover {
+            transform: translateY(-4px);
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.7), 0 0 15px rgba(255, 71, 87, 0.4);
+        }
+        
+        /* Brand accent colors matching grid templates */
+        .fb:hover { background-color: #1877f2; }
+        .tw:hover { background-color: #1a1a1a; }
+        .in:hover { background-color: #e1306c; }
+        .pin:hover { background-color: #bd081c; }
+        .gplus:hover { background-color: #ea4335; }
+
+        /* WATERMARK BRANDING FOOTER LINK */
+        .watermark {
+            position: absolute;
+            bottom: 15px;
+            right: 25px;
+            font-size: 10px;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* --- MOBILE SCREEN ADAPTIVE OVERRIDE --- */
+        @media (max-width: 540px) {
+            .card-container {
+                flex-direction: row; /* Enforces strict pashapashi landscape view layout on mobile */
+                padding: 20px 15px;
+                gap: 18px;
+            }
+
+            .profile-img-box {
+                width: 105px; /* Scales down beautifully while preserving circular ratio */
+                height: 105px;
+                box-shadow: 0 0 15px rgba(255, 71, 87, 0.6);
+                border-width: 2.5px;
+            }
+
+            .name { font-size: 19px; }
+            .designation { font-size: 11px; }
+            .contact-item { font-size: 11.5px; gap: 5px; }
+            .contact-item strong { min-width: 52px; }
+            
+            .social-link-item {
+                width: 26px;
+                height: 26px;
+                font-size: 10px;
+                box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4); /* Retains red neon glow structure in mobile view */
+            }
+            .watermark { font-size: 8px; right: 15px; bottom: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Miti Miti Alo Layer Base (Background Floating Canvas Particles) -->
+    <div class="sparkle-star star1"></div>
+    <div class="sparkle-star star2"></div>
+
+    <!-- Main Workspace Core Business Card Base -->
+    <div class="card-container">
+        
+        <!-- Left Area Panel: Auto Swivel Looping Red Glow Circular Profile Frame -->
+        <div class="profile-img-box">
+            <img src="		https://i.postimg.cc/Zn8yszrx/successful-businesswoman-using-laptop-working-in-office-business-technology-corporate-concept.jpg		" alt="Anika Rahman">
+        </div>
+
+        <!-- Right Area Panel: Clean Text Data Layout Coordinates -->
+        <div class="info-box">
+            <div>
+                <div class="name">Mounata Datta</div>
+                <div class="designation">Administration</div>
+            </div>
+
+            <!-- Fully Functional Row Actions List Grid -->
+            <div class="contact-list">
+                <a href="tel:+615848568445" class="contact-item">
+                    <strong>phone:</strong>
+                    <span>+615.8485.684.45</span>
+                </a>
+                
+                <a href="mailto:info@yourwebsite.com" class="contact-item">
+                    <strong>email:</strong>
+                    <span>info@yourwebsite.com</span>
+                </a>
+                
+                <a href="https://yourwebsite.com" target="_blank" class="contact-item">
+                    <strong>website:</strong>
+                    <span>www.yourwebsite.com</span>
+                </a>
+                
+                <div class="contact-item">
+                    <strong>address:</strong>
+                    <span>London, Uk</span>
+                </div>
+            </div>
+
+            <!-- Clickable Sized Round Social Buttons with Integrated Red Glowing Background Shadows -->
+            <div class="social-container">
+                <a href="https://facebook.com" target="_blank" class="social-link-item fb">f</a>
+                <a href="https://twitter.com" target="_blank" class="social-link-item tw">𝕩</a>
+                <a href="https://instagram.com" target="_blank" class="social-link-item in">i</a>
+                <a href="https://pinterest.com" target="_blank" class="social-link-item pin">p</a>
+                <a href="https://google.com" target="_blank" class="social-link-item gplus">G+</a>
+            </div>
+        </div>
+
